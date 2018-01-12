@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="she.js"></script>
+    <title>Title</title>
+</head>
+<style>
+    body {
+        background: url("wallhaven-496142.png")no-repeat center;
+    }
+    div.box{
+        width: 600px;
+        height:600px;
+        margin: 0 auto;
+        position: relative;
+        background: url("wallhaven-106741.jpg")no-repeat center;
+        background-size:100% 100%;
+    }
+    .box > div{
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        /*border: 1px solid #000;*/
+        float: left;
+    }
+    .she{
+        border-radius: 4px;
+        box-sizing: border-box;
+        /*border: 1px solid #000000;*/
+        background: url("huaji2.png")no-repeat center;
+        background-size:100% 100%;
+    }
+    .food{
+        border-radius: 4px;
+        background:url("shit.png")no-repeat center;
+        background-size:100% 100%;
+    }
+    div.box .fengshu{
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 100px;
+        font-size: 30px;
+        position: absolute;
+        border-radius: 20px;
+        top: 100px;
+        left: -285px;
+        background: #D4D4D4;
+    }
+    .but1{
+        border-radius: 20px;
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 250px;
+        left: 100px;
+    }
+    .but2{
+        border-radius: 20px;
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 400px;
+        left: 100px;
+    }
+</style>
+<body>
+<div class="box">
+    <div class="fengshu">0</div>
+</div>
+<button class="but1">暂停</button>
+<button class="but2">开始</button>
+</body>
+<!--<script>-->
+    <!--window.onload=function(){-->
+        <!--//    &lt;!&ndash;***************构建场景**************&ndash;&gt;-->
+        <!--var box=document.querySelector('.box');-->
+        <!--var str='';-->
+        <!--for(let i=0;i<20;i++){-->
+            <!--for(let j=0;j<20;j++){-->
+                <!--str+=`<div id="c${j}-${i}"></div>`-->
+
+            <!--}-->
+        <!--}-->
+        <!--box.innerHTML=str;-->
+<!--//    &lt;!&ndash;***************构建场景结束**************&ndash;&gt;-->
+
+
+
+
+<!--//    ************************绘制蛇****************************-->
+        <!--var she=[-->
+            <!--{x:0,y:0},-->
+            <!--{x:1,y:0},-->
+            <!--{x:2,y:0}-->
+        <!--];-->
+        <!--she.forEach(function(obj){-->
+            <!--var id=`#c${obj.x}-${obj.y}`;-->
+            <!--var div=document.querySelector(id);-->
+            <!--div.classList.add('she');-->
+
+        <!--})-->
+<!--//    ************************绘制蛇结束****************************-->
+
+
+
+<!--//    *********************食物************************************-->
+        <!--var food={};-->
+        <!--newfood();-->
+        <!--function chick(a,b){-->
+
+            <!--return she.some(function(value){-->
+                <!--return value.x==a&&value.y==b;-->
+            <!--})-->
+        <!--}-->
+         <!--function newfood() {-->
+
+             <!--do {-->
+                 <!--var x = Math.floor(Math.random() * 20);-->
+                 <!--var y = Math.floor(Math.random() * 20);-->
+             <!--} while (chick(x, y));-->
+
+             <!--food.x=x;-->
+             <!--food.y=y;-->
+             <!--var fod=document.querySelector(`#c${x}-${y}`);-->
+             <!--fod.classList.add('food');-->
+         <!--}-->
+
+
+
+
+
+
+
+<!--//    *********************食物结束********************************-->
+<!--//*************************蛇动********************************-->
+        <!--var dong='r';-->
+<!--//    上下左右按下是更改dong-->
+        <!--document.onkeydown=function(e){-->
+<!--//            console.log(e.keyCode)-->
+            <!--switch (e.keyCode){-->
+                <!--case 37:-->
+                    <!--if(dong=='r'){-->
+                        <!--return;-->
+                    <!--}else {-->
+                        <!--dong='l'-->
+                    <!--}-->
+                    <!--;break;-->
+                <!--case 38:-->
+                    <!--if(dong=='b'){-->
+                        <!--return;-->
+                    <!--}else {-->
+                        <!--dong='t'-->
+                    <!--}-->
+                    <!--;break;-->
+                <!--case 39:-->
+                    <!--if(dong=='l'){-->
+                        <!--return;-->
+                    <!--}else {-->
+                        <!--dong='r'-->
+                    <!--}-->
+                    <!--break;-->
+                <!--case 40:-->
+                    <!--if(dong=='t'){-->
+                        <!--return;-->
+                    <!--}else {-->
+                        <!--dong='b'-->
+                    <!--}-->
+                    <!--break;-->
+
+            <!--}-->
+            <!--console.log(dong)-->
+        <!--}-->
+        <!--var t=setInterval(move,200)-->
+<!--//        move();-->
+        <!--function move(){-->
+
+            <!--var newobj={};-->
+
+<!--//     根据dong的值更改she的最后一个对象，删除第一个对象-->
+            <!--switch (dong){-->
+
+                <!--case 'r': newobj.x=she[she.length-1].x+1;newobj.y=she[she.length-1].y;break;-->
+                <!--case 'l': newobj.x=she[she.length-1].x-1;newobj.y=she[she.length-1].y;break;-->
+                <!--case 't': newobj.x=she[she.length-1].x,newobj.y=she[she.length-1].y-1;break;-->
+                <!--case 'b': newobj.x=she[she.length-1].x,newobj.y=she[she.length-1].y+1;break;-->
+
+            <!--}-->
+            <!--if((0>newobj.x||newobj.x>=20||0>newobj.y||newobj.y>=20)||chick(newobj.x,newobj.y)){-->
+                <!--alert('游戏结束');-->
+                <!--clearInterval(t)-->
+                <!--return;-->
+            <!--}else {-->
+
+                <!--she.push(newobj);-->
+                <!--document.querySelector(`#c${she[she.length-1].x}-${she[she.length-1].y}`).className='she';-->
+<!--//                console.log( newfood())-->
+                <!--if(she[she.length-1].x==food.x&&she[she.length-1].y==food.y){-->
+                    <!--newfood();-->
+
+                    <!--console.log(food)-->
+
+                <!--}else {-->
+                    <!--document.querySelector(`#c${she[0].x}-${she[0].y}`).classList.remove('she');-->
+                    <!--she.shift();-->
+                <!--}-->
+            <!--}-->
+
+
+
+
+
+
+        <!--}-->
+
+
+
+
+<!--//*************************蛇动结束********************************-->
+
+    <!--}-->
+
+
+
+
+<!--</script>-->
+</html>
